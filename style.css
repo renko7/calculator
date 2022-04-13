@@ -105,3 +105,9 @@ body {
     background-color: var(--clr-theme1-equals-key-background);
     border-bottom: 6px solid var(--clr-theme1-equals-key-border);
 }
+
+@media screen and (min-width: 1175px) {
+    .calculator {
+        min-width: 500px;
+    }
+}
