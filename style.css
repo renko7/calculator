@@ -11,6 +11,11 @@
     --clr-theme1-key-background : #f0e4dc;
     --clr-theme1-key-border: #aca197;
     
+    --clr-theme1-reset-key-background: hsl(225, 21%, 49%);
+    --clr-theme1-reset-key-border: hsl(224, 28%, 35%);
+
+    --clr-theme1-equals-key-background: hsl(6, 63%, 50%);
+    --clr-theme1-equals-key-border: hsl(6, 70%, 34%);
 }
 
 *,
@@ -52,7 +57,7 @@ body {
 .calculator__keypad {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    margin-top: 2em;
+    margin-top: 1em;
     background-color: var(--clr-theme1-keypad-background);
     padding: .5em;
     font-size: 2rem;
@@ -80,4 +85,23 @@ body {
 
 .calculator__key_equals {
     grid-column: 3 / 5;
+}
+
+.calculator__key_delete {
+    color: var(--clr-theme1-main-text-color);
+    background-color: var(--clr-theme1-reset-key-background);
+    border-bottom: 6px solid var(--clr-theme1-reset-key-border);
+}
+
+.calculator__key_reset {
+    color: var(--clr-theme1-main-text-color);
+    background-color: var(--clr-theme1-reset-key-background);
+    border-bottom: 6px solid var(--clr-theme1-reset-key-border);
+    text-transform: uppercase;
+}
+
+.calculator__key_equals {
+    color: var(--clr-theme1-main-text-color);
+    background-color: var(--clr-theme1-equals-key-background);
+    border-bottom: 6px solid var(--clr-theme1-equals-key-border);
 }
