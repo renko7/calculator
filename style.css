@@ -31,13 +31,18 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 100vh;
+    font-family: 'League Spartan', sans-serif;
 }
 
 .calculator__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.calculator__header_text {
+    font-size: 2rem;
 }
 
 .theme-swicher {
