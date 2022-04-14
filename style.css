@@ -34,15 +34,39 @@ body {
     min-height: 100vh;
 }
 
+.calculator__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.theme-swicher {
+    display: flex;
+}
+
+.theme-switcher__header {
+    margin-right: 1.5em;
+    text-transform: uppercase;
+}
+
+.theme-switcher__labels {
+    text-align: center;
+}
+
+.theme-switcher__inputs {
+    background-color: var(--clr-theme1-keypad-background);
+    border-radius: 2em;
+    accent-color: var(--clr-theme1-equals-key-background);
+}
+
+.theme-switcher__label_2 {
+    margin: .8em;
+}
+
 .calculator {
     max-width: 375px;
     display: flex;
     flex-direction: column;
-}
-
-.calculator__header {
-    display: flex;
-    justify-content: space-between;
 }
 
 .calculator__screen {
