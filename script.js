@@ -61,6 +61,9 @@ function calculateValue() {
             answer = `${firstValue * currentNumber}`
             break
     }
+    
+    if(answer.length > 12) answer = (+answer).toPrecision(3)
+    
     return answer
 }
 
