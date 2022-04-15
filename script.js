@@ -1,7 +1,8 @@
 const screen  = document.querySelector('.calculator__screen')
 const buttons = document.querySelectorAll('.calculator__key')
 
-let secondValue = 0
+let firstValue = 0
+let operator = ''
 
 
 function handleKeyClick() {
@@ -13,12 +14,16 @@ function handleKeyClick() {
     switch(keyValue) {
         case '.':
             addToScreen(keyValue)
+            break
         case 'Reset':
             clearScreen()
+            break
         case 'D':
             removeLastFromScreen()
-        case '+': case '-': case 'x': case '/':
+            break
+        case '+': case '-': case 'x': case '/': case '=':
             handleOperator(keyValue)
+            break
     }
     
 }
@@ -39,14 +44,42 @@ function isNumber(number) {
     return false
 }
 
+function calculateValue() {
+    const currentNumber = +screen.textContent
+    let answer;
+    switch(operator) {
+        case '+':
+            answer = `${firstValue + currentNumber}`
+            break
+        case '-':
+            answer = `${firstValue - currentNumber}`
+            break
+        case '/':
+            answer = `${firstValue / currentNumber}`
+            break
+        case 'x':
+            answer = `${firstValue * currentNumber}`
+            break
+    }
+    return answer
+}
+
 function clearScreen() {screen.textContent = '0'}
 function removeLastFromScreen() {screen.textContent = `${screen.textContent.slice(0,-1)}`}
 
 function handleOperator(key) {
-    const operators = ['+','-','x','/']
-    if(key in operators) {
-
+    if(key !== '=') {
+        operator = key
+        firstValue = +screen.textContent
+        clearScreen()
+    } else {
+        if(typeof operator !== 'undefined') {
+            screen.textContent = calculateValue()
+            firstValue = 0
+            operator = ''
+         }
     }
+
 }
 
 for (const button of buttons) {
