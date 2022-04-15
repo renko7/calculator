@@ -1,15 +1,26 @@
 const screen  = document.querySelector('.calculator__screen')
 const buttons = document.querySelectorAll('.calculator__key')
 
+let secondValue = 0
+
 
 function handleKeyClick() {
     const keyValue = this.textContent
-    console.log(+keyValue)
-    if (isNumber(+keyValue) || keyValue === '.'){
-        addToScreen(keyValue)
-    } else {
+    console.log(keyValue)
 
+    if (isNumber(+keyValue)) addToScreen(keyValue)
+
+    switch(keyValue) {
+        case '.':
+            addToScreen(keyValue)
+        case 'Reset':
+            clearScreen()
+        case 'D':
+            removeLastFromScreen()
+        case '+': case '-': case 'x': case '/':
+            handleOperator(keyValue)
     }
+    
 }
 
 function addToScreen(key) {
@@ -28,7 +39,17 @@ function isNumber(number) {
     return false
 }
 
+function clearScreen() {screen.textContent = '0'}
+function removeLastFromScreen() {screen.textContent = `${screen.textContent.slice(0,-1)}`}
+
+function handleOperator(key) {
+    const operators = ['+','-','x','/']
+    if(key in operators) {
+
+    }
+}
 
 for (const button of buttons) {
     button.addEventListener('click', handleKeyClick)
 }
+
